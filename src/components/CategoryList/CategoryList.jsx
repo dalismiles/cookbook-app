@@ -1,7 +1,9 @@
-import React from 'react';
-import CategoryListItem from '../CategoryListItem';
-import styles from './index.module.scss'
- const CategoryList = (props) => {
+import React from "react";
+import CategoryListItem from "../CategoryListItem";
+
+import styles from "./index.module.scss";
+
+const CategoryList = (props) => {
   const { categories = [] } = props;
 
   return (
@@ -15,5 +17,4 @@ import styles from './index.module.scss'
   );
 };
 
-
-export default CategoryList
+export default CategoryList;

@@ -1,13 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from './index.module.scss';
+import React from "react";
+import { Link } from "react-router-dom";
 
- const CategoryListItem = (props) => {
+import styles from "./index.module.scss";
+
+const CategoryListItem = (props) => {
   const { category } = props;
 
   return (
-    <li className={styles['CategoryListItem']}>
-      <div className={styles['thumbnail-wrapper']}>
+    <li className={styles["CategoryListItem"]}>
+      <div className={styles["thumbnail-wrapper"]}>
         <img
           className={styles.thumbnail}
           src={category.strCategoryThumb}
@@ -28,4 +29,4 @@ import styles from './index.module.scss';
   );
 };
 
-export default CategoryListItem
+export default CategoryListItem;

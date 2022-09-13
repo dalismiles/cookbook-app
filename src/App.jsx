@@ -1,7 +1,12 @@
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.module.css";
-import { Home, Category, ErrorPage } from "./pages";
+
+import Home from "./Pages/Home";
+import Category from "./Pages/Category";
+import ErrorPage from "./Pages/ErrorPage";
 import Navbar from "./components/Navbar";
+
+import "./App.module.scss";
 
 function App() {
   return (
