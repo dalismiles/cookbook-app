@@ -21,7 +21,8 @@
   $justify: flex-start,
   $align: stretch,
   $wrap: nowrap,
-  $gap: 0px
+  $gap: 0px,
+  $flex-flow: row nowrap
 ) {
   display: flex;
   flex-direction: $direction;
@@ -29,6 +30,7 @@
   align-items: $align;
   flex-wrap: $wrap;
   gap: $gap;
+  flex-flow: $flex-flow;
 }
 
 @mixin element-position(
@@ -47,20 +49,38 @@
   z-index: $z-index;
 }
 
+@mixin form-text(
+  $font-size: 16px,
+  $font-style: normal,
+  $font-weight: 400,
+  $letter-spacing: normal,
+  $text-decoration: none
+) {
+  font-size: $font-size;
+  font-style: $font-style;
+  font-weight: $font-weight;
+  letter-spacing: $letter-spacing;
+  text-decoration: $text-decoration;
+}
+
 @mixin button-element(
   $width: auto,
   $height: auto,
   $padding: 0,
   $border: 0,
-  $border-radius: 0
+  $border-radius: 0,
+  $font-weight: bold,
+  $text-transform: uppercase,
+  $cursor: pointer,
+  $transition: all 0.35s
 ) {
   width: $width;
   height: $height;
   padding: $padding;
   border: $border;
   border-radius: $border-radius;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.35s;
+  font-weight: $font-weight;
+  text-transform: $text-transform;
+  cursor: $cursor;
+  transition: $transition;
 }

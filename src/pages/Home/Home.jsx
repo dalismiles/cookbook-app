@@ -4,7 +4,6 @@ import { useFetch } from "../..//api/use-fetch.js";
 import CategoryList from "../../components/CategoryList";
 
 export const Home = () => {
-  // eslint-disable-next-line
   const { data, loading, error } = useFetch(ENDPOINTS.CATEGORIES);
 
   if (loading) {

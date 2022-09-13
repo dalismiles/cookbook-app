@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, NavLink } from 'react-router-dom';
 
+import Logo from '../../images/book.svg'
+
 import styles from "./navbar.module.scss";
 
 export const Navbar = () => {
@@ -15,6 +17,10 @@ export const Navbar = () => {
         <nav 
         className={styles.Navbar}
         >
+          <div className={styles.companyLogo}>
+            <img src={Logo} alt="logo" />
+            <span> COOKBOOK </span>
+          </div>
           <ul>
             {links.map(({ href, label, title }) => (
               <li key={href}>
