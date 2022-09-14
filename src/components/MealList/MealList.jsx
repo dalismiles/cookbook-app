@@ -1,21 +1,23 @@
-import React from 'react';
-
+import React from "react";
 import MealListItem from "../MealListItem";
 
- const MealList = (props) => {
-  const {meals = [], categoryName = ''} = props;
+import styles from "./index.module.scss";
+
+const MealList = (props) => {
+  const { meals = [], categoryName = "" } = props;
 
   return (
-      <section className="MealList">
-        <ul>
-          {meals.map((meal) => (
-              <MealListItem key={meal.idMeal}
-                            meal={meal}
-                            categoryName={categoryName}
-              />
-          ))}
-        </ul>
-      </section>
+    <section className="MealList">
+      <ul>
+        {meals.map((meal) => (
+          <MealListItem
+            key={meal.idMeal}
+            meal={meal}
+            categoryName={categoryName}
+          />
+        ))}
+      </ul>
+    </section>
   );
 };
 

@@ -18,7 +18,7 @@ const MealListItem = (props) => {
         <h3 className={styles.title}>{meal.strMeal}</h3>
       </div>
       <Link
-        to={`/catalogo/${categoryName}/${meal.strMeal}`}
+        to={`/catalogo/${categoryName}/${meal.strMeal}/${meal.idMeal}`}
         title={`naviga sul catalogo ${meal.strMeal}`}
         className={styles.link}
       >
