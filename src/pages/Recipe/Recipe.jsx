@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Outlet } from "react-router-dom";
+import { NavLink, useParams, Outlet } from "react-router-dom";
 import { ENDPOINTS } from "../../api/endpoints";
 import { useFetch } from "../../api/use-fetch";
 
@@ -23,7 +23,7 @@ const formatRecipe = (data) => {
   return {
     name: initialRecipe.strMeal,
     id: initialRecipe.idMeal,
-    youtubeUrl: initialRecipe.strYoutube,
+    video: initialRecipe.strYoutube,
     thumbnailSrc: initialRecipe.strMealThumb,
     tags: initialRecipe.strTags,
     instructions: initialRecipe.strInstructions,
@@ -31,8 +31,22 @@ const formatRecipe = (data) => {
   };
 };
 
-const Recipe = (props) => {
-  const { tab } = props;
+const Recipe = () => {
+  const tab = [
+    {
+      name: "Ingredients",
+      path: "/ingredients",
+    },
+    {
+      name: "Instructions",
+      path: "/instructions",
+    },
+    {
+      name: "Video",
+      path: "/video",
+    },
+  ];
+
   const { categoryName, recipeName, id } = useParams();
   const { data, loading, error } = useFetch(
     `${ENDPOINTS.DETAIL}?i=${id}`,
@@ -44,23 +58,31 @@ const Recipe = (props) => {
   }
 
   return (
-    <div>
+    <div className={styles.Recipe}>
       <h1>
-        {categoryName} -{recipeName}
+        {categoryName} - {recipeName}
       </h1>
-
-      <ul>
-        <li>Istruzioni {data.instructions}</li>
-        <li>Ingredienti</li>
-        <li>YouTube</li>
-      </ul>
+      <img src={data.thumbnailSrc} alt={data.name} />
+      <nav className={styles.tab}>
+        {tab.map((item, i) => (
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? `${styles.link} ${styles.link_active}` : styles.link
+            }
+            to={`.${item.path}`}
+            key={i}
+          >
+            {item.name}
+          </NavLink>
+        ))}
+      </nav>
 
       <Outlet context={data} />
-
-      {/* {tab === 'youtube' && <p>{data.youtubeUrl}</p>}
-      {tab === 'instructions' && <p>{data.instructions}</p>} */}
     </div>
   );
 };
 
 export default Recipe;
+
+// {tab === 'ingredients' && <p>{data.ingredients}</p>}
+// {tab === 'youtube' && <p>{data.youtubeUrl}</p>}

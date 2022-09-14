@@ -1,3 +1,3 @@
-import Navbar from './Navbar';
+import Player from "./Player";
 
-export default Navbar
+export default Player;

@@ -1,7 +1,7 @@
 @import "../../styles/_variables";
 @import "../../styles/_mixins";
 
-.Player {
+.Ingredients {
   @include box-model();
   @include flex-element();
 }
